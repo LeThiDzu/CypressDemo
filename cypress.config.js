@@ -1,5 +1,5 @@
 const { defineConfig } = require("cypress");
-const { rmdir } = require('fs')
+const fs = require('fs')
 const { removeDirectory } = require('cypress-delete-downloads-folder');
 
 module.exports = defineConfig({
@@ -18,18 +18,8 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
       on('task', {
-        deleteFolder(fileName) {
-          console.log('Deleting file %s', fileName)
-
-          return new Promise((resolve, reject) => {
-            rmdir(fileName, { maxRetries: 10, recursive: true }, (err) => {
-              if (err) {
-                console.log('ERROR: ' + err)
-                return reject(err)
-              }
-              resolve(null)
-            })
-          })
+        downloads: (downloadspath) => {
+          return fs.readdirSync(downloadspath)
         }
       })
     },

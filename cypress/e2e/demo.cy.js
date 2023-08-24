@@ -4,9 +4,6 @@ import 'cypress-mochawesome-reporter/register';
 import { deleteDownloadsFile } from '../support/helpers';
 
 describe('example test', () => {
-
-  beforeEach(deleteDownloadsFile)
-
   it('example test', () => {
 
     loginPage.login()

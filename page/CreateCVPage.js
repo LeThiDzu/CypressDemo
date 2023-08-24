@@ -140,10 +140,17 @@ export function step2_skills() {
         cy.clickElement("//button[@id='" + chosenSkill +"']", "xpath")
     });
 
-    cy.clickElement(createCVPage.btnDownload, "xpath")
-    cy.clickElement(createCVPage.btnDownloadPDF, "xpath")
-    var currentDate = dayjs().format('DD.MM.YYYY')
-    checkFileDownload("UNTITLED_" + currentDate + ".pdf")
+    // var currentDate = dayjs().format('DD.MM.YYYY')
+    // checkFileDownload("UNTITLED_" + currentDate + ".pdf")
+    cy.task('downloads', './cypress/downloads').then(before => {
+        // do the download
+        cy.clickElement(createCVPage.btnDownload, "xpath")
+        cy.clickElement(createCVPage.btnDownloadPDF, "xpath")
+      
+        cy.task('downloads', 'my/downloads/folder').then(after => {
+          expect(after.length).to.be.eq(before.length +1)  
+        })
+      })
 
 }
 

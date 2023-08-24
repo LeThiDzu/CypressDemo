@@ -38,8 +38,3 @@ export default class Helpers {
     }
 }
 
-export const deleteDownloadsFile = () => {
-    const downloadsFolder = Cypress.config('../Cypress/cypress/downloads')
-    cy.task('deleteFolder', "" + downloadsFolder)
-}
-
