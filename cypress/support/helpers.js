@@ -6,10 +6,7 @@ export default class Helpers {
         this.input = str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
         return new RegExp(`${this.input}`, 'i');
     }
-
     
-
-
     static generateRandomValue(valueType) {
         if (valueType == "Job") {
             return faker.person.jobTitle();

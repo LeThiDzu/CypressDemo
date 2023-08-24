@@ -1,4 +1,4 @@
-export const btnLogin = "button[value='signin']"
+export const btnLogin = "button[value='signin'] > span"
 export const btnSignup = "button[value='signup']"
 export const btnDashboard = "a[href='/dashboard']"
 export const btnCreateMyCV = "button[data-testid='btnCreateResume']"
