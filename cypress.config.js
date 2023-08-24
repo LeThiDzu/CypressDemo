@@ -3,6 +3,7 @@ const { rmdir } = require('fs')
 const { removeDirectory } = require('cypress-delete-downloads-folder');
 
 module.exports = defineConfig({
+  projectId: "21m3pm",
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
