@@ -1,6 +1,6 @@
 const { defineConfig } = require("cypress");
 const fs = require('fs')
-const { removeDirectory } = require('cypress-delete-downloads-folder');
+const { verifyDownloadTasks } = require('cy-verify-downloads');
 
 module.exports = defineConfig({
   projectId: "21m3pm",
@@ -21,7 +21,10 @@ module.exports = defineConfig({
         downloads: (downloadspath) => {
           return fs.readdirSync(downloadspath)
         }
-      })
+      });
+
+      // on('task', { downloadFile })
+      on('task', verifyDownloadTasks)
     },
   },
   // env: {

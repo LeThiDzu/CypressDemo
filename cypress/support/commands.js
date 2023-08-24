@@ -1,25 +1,22 @@
 import 'cypress-file-upload';
 require('cypress-xpath');
 require('cypress-delete-downloads-folder').addCustomCommand();
+require('cy-verify-downloads').addCustomCommand()
 
 Cypress.Commands.add('clickElement', (locator, locatorType, ...args) => {
     if (locatorType == "xpath") {
-        return cy.xpath(`${locator}`).click();
+        return cy.xpath(locator).click();
     } else if (locatorType == "cssSelector"){
-        return cy.get(`${locator}`).click();
+        return cy.get(locator).click();
     }
 });
 
-// Cypress.Commands.add('clickElement', (locator, locatorType, timeOutCustom, ...args) => {
-//     if (locatorType == "xpath") {
-//         return cy.xpath(`${locator}`, {timeout: timeOutCustom}).click();
-//     } else if (locatorType == "cssSelector"){
-//         return cy.get(`${locator}`, {timeout: timeOutCustom}).click();
-//     }
-// });
-
-Cypress.Commands.add('clickElementByXpath', (locator, ...args) => {
-    return cy.xpath(`${locator}`).click();
+Cypress.Commands.add('waitUntilElementVisible', (locator, locatorType, customTimeout) => {
+    if (locatorType == "xpath") {
+        return cy.xpath(locator, { timeout: customTimeout }).should('be.visible');
+    } else if (locatorType == "cssSelector"){
+        return cy.get(locator, { timeout: customTimeout}).should('be.visible')
+    }
 });
 
 Cypress.Commands.add('setText', (locator, yourText,...args) => {

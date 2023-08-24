@@ -2,6 +2,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "@types/lodash": "^4.14.197",
+    "cy-verify-downloads": "^0.1.15",
     "cypress": "^12.17.4",
     "cypress-delete-downloads-folder": "^0.0.2",
     "cypress-file-upload": "^5.0.8",
@@ -9,7 +10,12 @@
     "cypress-xpath": "^2.0.1"
   },
   "dependencies": {
+    "cypress-parallel": "^0.13.0",
     "faker": "^6.6.6",
     "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d 'cypress/e2e' -m false -n ../node_modules/cypress-multi-reporters"
   }
 }

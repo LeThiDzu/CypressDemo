@@ -3,7 +3,7 @@ import helpers from '../support/helpers';
 describe('template spec', () => {
   it('delete cv', () => {
     cy.visit('https://staging.thecv.app/')
-
+    cy.wait(3000)
     cy.clickElement("button[value='signin']", "cssSelector")
 
     const email = "tranhuuhoan254@gmail.com"
