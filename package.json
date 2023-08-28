@@ -16,6 +16,6 @@
   },
   "scripts": {
     "cy:run": "cypress run",
-    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d 'cypress/e2e' -m false -n ../node_modules/cypress-multi-reporters"
+    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d 'cypress/e2e' -n ../node_modules/cypress-multi-reporters"
   }
 }

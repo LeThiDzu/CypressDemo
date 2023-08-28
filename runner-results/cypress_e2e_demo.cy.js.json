@@ -1,10 +1,10 @@
 {
   "suites": 1,
   "tests": 1,
-  "passes": 0,
+  "passes": 1,
   "pending": 0,
-  "failures": 1,
-  "start": "2023-08-24T10:53:11.958Z",
-  "duration": 70619,
+  "failures": 0,
+  "start": "2023-08-25T10:03:57.602Z",
+  "duration": 55124,
   "file": "cypress\\e2e\\demo.cy.js"
 }

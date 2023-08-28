@@ -33,5 +33,16 @@ export default class Helpers {
             return faker.location.zipCode()
         }
     }
+
+    static verifyElementExist(element) {
+        cy.get('body').then(($body) => {
+            if ($body.find(element).length > 0) {
+                return true
+            }
+            else{
+                return false
+            }
+        })
+    }
 }
 

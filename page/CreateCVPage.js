@@ -140,6 +140,9 @@ export function step2_skills() {
         cy.clickElement("//button[@id='" + chosenSkill +"']", "xpath")
     });
 
+    cy.clickElement(createCVPage.btnDownload, "xpath")
+    cy.clickElement(createCVPage.btnDownloadPDF, "xpath")
+
     var currentDate = dayjs().format('DD.MM.YYYY')
     cy.verifyDownload("UNTITLED_" + currentDate + ".pdf")
 

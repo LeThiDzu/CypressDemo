@@ -6,6 +6,8 @@ module.exports = defineConfig({
   projectId: "21m3pm",
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
+    // toConsole: true,
+    // reportDir: "cypress/reports/mochawesome-report",
     charts: true,
     reportPageTitle: 'BHS Test report', 
     embeddedScreenshots: true,
@@ -27,9 +29,6 @@ module.exports = defineConfig({
       on('task', verifyDownloadTasks)
     },
   },
-  // env: {
-  //   downloadsFolder: '../Cypress/cypress/downloads/'
-  // },
   viewportWidth: 1366,
   viewportHeight: 768,
   defaultCommandTimeout: 15000,

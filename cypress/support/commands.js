@@ -15,7 +15,8 @@ Cypress.Commands.add('waitUntilElementVisible', (locator, locatorType, customTim
     if (locatorType == "xpath") {
         return cy.xpath(locator, { timeout: customTimeout }).should('be.visible');
     } else if (locatorType == "cssSelector"){
-        return cy.get(locator, { timeout: customTimeout}).should('be.visible')
+        var status_display = cy.get(locator, { timeout: customTimeout}).should('be.visible')
+        return status_display
     }
 });
 
@@ -51,17 +52,7 @@ Cypress.Commands.add('deleteCVs', () => {
     }
 });
 
-Cypress.Commands.add('verifyElementExist', (locator, locatorType) => {
-    if (locatorType == "xpath") {
-        return cy.xpath(`${locator}`).should('exist')
-    }
-    else if (locatorType == "cssSelector") {
-        return cy.get(`${locator}`).should('exist')
-    }
-});
-
-
-
 // Cypress.Commands.add('betaGenerateName', () => {
 //     return dataTest[Math.floor( Math.random() * dataTest.lenght() )];
 // });
+
